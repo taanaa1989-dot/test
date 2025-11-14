@@ -12,15 +12,8 @@ ChatOpenAI = None
 HumanMessage = None
 SystemMessage = None
 
-try:
-    from langchain_openai import ChatOpenAI
-    from langchain_core.messages import HumanMessage, SystemMessage
-except ImportError:
-    try:
-        from langchain.chat_models import ChatOpenAI
-        from langchain_core.messages import HumanMessage, SystemMessage
-    except ImportError:
-        # 最後の手段として OpenAI の直接使用
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage
 
 def get_llm_response(input_text, expert_type):
     """
